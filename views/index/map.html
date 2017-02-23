@@ -1,0 +1,27 @@
+<%include ../common/header.ejs %>
+<div class="main">
+    <div class="menu"></div>
+    <div class="content">
+        <div class="content-title">map</div>
+    </div>
+</div>
+<script>
+    (function() {
+        var p_menu = new Pithy.p_Menu({
+            menu : [
+                {
+                    title: '地图1',
+                    icon: 'icon-enviromento',
+                    href: '/index/map'
+                },
+                {
+                    title: '地图2',
+                    icon: 'icon-hearto',
+                    href: ''
+                }]
+        });
+        p_menu.build('.menu');
+    })();
+</script>
+</body>
+<%include ../common/footer.ejs %>
