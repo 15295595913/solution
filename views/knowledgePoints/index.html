@@ -4,11 +4,6 @@
     <div class="content">
         <div class="p-Breadcrumb">乱</div>
         <div class="p-content">
-            <div>
-                <p>1、解决ajaxPost的乱码问题.(图)
-                </p>
-                <p></p>
-            </div>
         </div>
     </div>
 </div>
@@ -37,6 +32,11 @@
             ]
         });
         p_menu.build('.menu');
+
+        //使用md内容
+        $.get("/知识点/乱/readme.md", function (response, status, xhr) {
+            $(".p-content").html(marked(response));
+        });
     })();
 </script>
 </body>

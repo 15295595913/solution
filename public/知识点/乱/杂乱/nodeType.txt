@@ -1,0 +1,13 @@
+12种
+node.element_node(1)
+node.attribute_node(2)
+node.text_node(3)
+node.cdata_section_node(4)
+node.entity_reference_node(5)
+node.entity_node(6)
+node.processing_instruction_node(7)
+node.comment_node(8)
+node.document_node(9)
+node.document_type_node(10)
+node.document_fragmbnt_node(11)
+node.notation_node(12)
