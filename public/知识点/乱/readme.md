@@ -26,3 +26,7 @@ http://www.bootcdn.cn/marked/
 方式获取md内容。使用marked函数。
 
 4、git相关知识
+
+5、
+数据可视化  【canvas】 svg vml
+视频播放器	【Jplayer】

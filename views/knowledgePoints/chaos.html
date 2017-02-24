@@ -1,6 +1,6 @@
 <%include ../common/header.ejs %>
 <div class="main">
-    <div class="menu"></div>
+    <%include common/left.ejs %>
     <div class="content">
         <div class="content-title">首页</div>
         <div id="panel" style=" position: absolute;
@@ -18,27 +18,6 @@
 </div>
 <script>
     (function () {
-        var p_menu = new Pithy.p_Menu({
-            menu: [
-                {
-                    title: '乱',
-                    icon: 'icon-hearto',
-                    href: '/knowledgePoints/chaos'
-                },
-                {
-                    title: '高级',
-                    icon: 'icon-hearto',
-                    href: '/knowledgePoints/advanced'
-                },
-                {
-                    title: 'dom',
-                    icon: 'icon-hearto',
-                    href: '/knowledgePoints/dom'
-                }
-            ]
-        });
-        p_menu.build('.menu');
-
         //地图加载
         var p_map = new Pithy.p_Map({});
         p_map.init('content-area');

@@ -2,7 +2,7 @@
 <div class="main">
     <%include common/left.ejs %>
     <div class="content">
-        <div class="p-Breadcrumb">乱</div>
+        <div class="p-Breadcrumb">项目</div>
         <div class="p-content">
         </div>
     </div>
@@ -13,7 +13,7 @@
 <script>
     (function () {
         //使用md内容
-        $.get("/知识点/乱/readme.md", function (response, status, xhr) {
+        $.get("/知识点/总结项目/readme.md", function (response, status, xhr) {
             $(".p-content").html(marked(response));
         });
     })();

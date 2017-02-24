@@ -1,0 +1,30 @@
+<div class="menu"></div>
+<script>
+    (function () {
+        var p_menu = new Pithy.p_Menu({
+            menu: [
+                {
+                    title: '乱',
+                    icon: 'icon-hearto',
+                    href: '/knowledgePoints/chaos'
+                },
+                {
+                    title: '高级',
+                    icon: 'icon-hearto',
+                    href: '/knowledgePoints/advanced'
+                },
+                {
+                    title: 'dom',
+                    icon: 'icon-hearto',
+                    href: '/knowledgePoints/dom'
+                },
+                {
+                    title: '项目',
+                    icon: 'icon-hearto',
+                    href: '/knowledgePoints/project'
+                }
+            ]
+        });
+        p_menu.build('.menu');
+    })();
+</script>

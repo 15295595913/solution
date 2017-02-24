@@ -124,4 +124,24 @@ router.get('/knowledgePoints/index', function (req, res, next) {
     res.render('knowledgePoints/index', data);
 });
 
+router.get('/knowledgePoints/project', function (req, res, next) {
+    //数据
+    var data = {
+        title: '知识点',
+        time: (new Date).toString(),
+        list: [
+            {
+                id: '1',
+                name: '张三'
+            },
+            {
+                id: '2',
+                name: '李四'
+            }
+        ]
+    };
+    //渲染模板
+    res.render('knowledgePoints/project', data);
+});
+
 module.exports = router;
