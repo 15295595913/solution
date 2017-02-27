@@ -1,37 +1,16 @@
 <%include ../common/header.ejs %>
-<div class="main">
-    <div class="menu"></div>
-    <div class="content">
-        <div class="content-title">首页</div>
-        <div id="panel" style=" position: absolute;
-            background-color: white;
-            max-height: 90%;
-            overflow-y: auto;
-            z-index: 9999;
-            top: 178px;
-            right: 10px;
-            width: 280px;"></div>
-        <div class="content-area" id="content-area">
 
-        </div>
+<link rel="stylesheet" href="/Carousel/jquery.zySlide.css" />
+<div class="main">
+    <%include common/left.ejs %>
+    <div class="content">
+        <div class="content-title">组件-跑马灯</div>
+        <div class="p-Carousel-Wrap" style="padding-top: 20px;width: 100%;height: 100%;"></div>
     </div>
 </div>
 <script>
     (function () {
-        var p_menu = new Pithy.p_Menu({
-            menu: [
-                {
-                    title: '地图1',
-                    icon: 'icon-enviromento',
-                    href: '/index/map'
-                },
-                {
-                    title: '地图2',
-                    icon: 'icon-hearto',
-                    href: ''
-                }]
-        });
-        p_menu.build('.menu');
+        $('.p-Carousel-Wrap').zySlide({speed: 500,wrap: '.p-Carousel-Wrap'}).css('border', '0px solid blue');
     })();
 </script>
 </body>

@@ -1,0 +1,25 @@
+<%include ../common/header.ejs %>
+<div class="main">
+    <%include common/left.ejs %>
+    <div class="content">
+        <div class="p-Breadcrumb">20170217</div>
+        <div class="title" style="padding-bottom: 20px;">
+            <p>主要内容：</p>
+            <p>1、逻辑提。</p>
+            <p>2、知识专题拓展。</p>
+        </div>
+        <div class="p-content">
+
+        </div>
+    </div>
+</div>
+<script>
+    (function () {
+        //使用md内容
+        $.get("/每日一练/20170227.md", function (response, status, xhr) {
+            $(".p-content").html(marked(response));
+        });
+    })();
+</script>
+</body>
+<%include ../common/footer.ejs %>
