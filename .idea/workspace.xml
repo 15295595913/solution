@@ -24,11 +24,9 @@
       <file leaf-file-name="20170227.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/dailyPractice/20170227.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="18" column="57" selection-start-line="18" selection-start-column="57" selection-end-line="18" selection-end-column="57" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="120">
+              <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -288,12 +286,12 @@
       <option name="presentableId" value="Default" />
       <updated>1487898616103</updated>
       <workItem from="1487898623970" duration="10126000" />
-      <workItem from="1488157865990" duration="9814000" />
+      <workItem from="1488157865990" duration="10713000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19940000" />
+    <option name="totallyTimeSpent" value="20839000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -508,11 +506,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/dailyPractice/20170227.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="18" column="57" selection-start-line="18" selection-start-column="57" selection-end-line="18" selection-end-column="57" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="120">
+          <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
