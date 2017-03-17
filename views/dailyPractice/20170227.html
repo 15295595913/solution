@@ -12,7 +12,7 @@
 <script>
     (function () {
         //使用md内容
-        $.get("/每日一练/20170227.md", function (response, status, xhr) {
+        $.get("/每日一练/20170227/20170227.md", function (response, status, xhr) {
             $(".p-content").html(marked(response));
         });
     })();

@@ -1,5 +1,5 @@
 (function() {
-    Pithy.p_Table = p_Table;
+    pithy.p_Table = p_Table;
     p_Table.renders = {
         "default": ""
     };

@@ -1,5 +1,5 @@
 (function () {
-    Pithy.p_Modal = p_Modal;
+    pithy.p_Modal = p_Modal;
     p_Modal.renders = {
         "default": "<div class='p_modal'>" +
         "<div class='p-modal-content'>" +

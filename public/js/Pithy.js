@@ -1,4 +1,4 @@
-var Pithy = window.Pithy = {};
+var pithy = window.pithy = {};
 
-Pithy.version = '1.1';
-Pithy.time = '2017/01/18 ~ ';
+pithy.version = '1.1';
+pithy.time = '2017/01/18 ~ ';

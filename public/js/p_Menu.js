@@ -1,5 +1,5 @@
 (function () {
-    Pithy.p_Menu = p_Menu;
+    pithy.p_Menu = p_Menu;
 
     p_Menu.renders = {
         'default': '<div class="p-menu">$${content}</div>'

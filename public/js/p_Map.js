@@ -1,5 +1,5 @@
 (function () {
-    Pithy.p_Map = p_Map;
+    pithy.p_Map = p_Map;
 
 
     function p_Map(info) {

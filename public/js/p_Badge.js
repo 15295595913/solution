@@ -1,5 +1,5 @@
 (function () {
-    Pithy.p_Badge = p_Badge;
+    pithy.p_Badge = p_Badge;
     p_Badge.renders = {
         'default': '<div class="p_Badge">${label}<span>${count}</span></div>'
     };
@@ -43,7 +43,7 @@
                     color: '#FFFFFF'
                 });
             });
-            var p_modal = new Pithy.p_Modal({
+            var p_modal = new pithy.p_Modal({
                 'title': '消息列表',
                 'style': {
                     'width': '40%'

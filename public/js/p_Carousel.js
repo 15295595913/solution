@@ -1,28 +1,42 @@
 //-------------------------------------------------------------------------//
 (function ($) {
-    Slide.renders = {
-        "default": "<div class='p-Carousel'><div class='main'>" +
+    p_Carousel.renders = {
+        "default": "<div class='p-Carousel' style='margin: 0 auto;'><div class='main'>" +
         "<section class='sectionLeft'><img style='width: 22px;height: 22px;display:block;' src='/Carousel/left.png'/></section>" +
         "<section class='sectionRight'><img style='width: 22px;height: 22px;display:block;' src='/Carousel/right.png'/></section>" +
         "<ul>" +
-        "<li class='homePage-pics-title'><img src='/Carousel/sanwei.png' data='项目可视化平台'/></li>" +
-        "<li class='HomePage-MapClick homePage-pics-title'><img src='/Carousel/map.png' data='项目地图'/></li>" +
-        "<li class='HomePage-MapClick homePage-pics-title'><img src='/Carousel/tubiao.png' data='决策支持平台'/></li>" +
+        "<li class='homePage-pics-title'><img src='/Carousel/sanwei.png' data='项目可视化平台' title='项目可视化平台'/></li>" +
+        "<li class='HomePage-MapClick homePage-pics-title'><img src='/Carousel/map.png' data='项目地图' title='项目地图'/></li>" +
+        "<li class='HomePage-MapClick homePage-pics-title'><img src='/Carousel/tubiao.png' data='决策支持平台' title='决策支持平台'/></li>" +
         "</ul>" +
         "<div id='HomePage-PTitle' style='position: absolute;bottom: -20px;width: 200px;width: 100%;height: 36px;background: #f4f9fb;text-align: center;line-height: 36px;color: black;font-size: 20px;font-weight: bold;'></div>" +
         "</div></div>"
     };
     // 创建构造函数
-    function Slide(ele, options) {
-        var jParent = $(options.wrap);
+    function p_Carousel(ele, options) {
+        var self = this;
 
-        var renderHtml = juicer(Slide.renders['default'], {name: 'hello22s'});
+        this.body = $("body");
+        this.jWrap = $(ele)//this. 构造函数的实例对象
+        this.options = $.extend({
+            speed: 1000,
+            delay: 3000
+        }, options)//拓展
 
-        jParent.html(renderHtml);
+        var renderHtml = juicer(p_Carousel.renders['default'], {name: 'hello22s'});
+        this.jWrap.html(renderHtml);
+
+
+        this.reset();
+        this.play();
+        $(window).resize(function() {
+            self.reset();
+        });
+
     }
 
 
-    Slide.prototype = {
+    p_Carousel.prototype = {
         reset: function () {
             var centerWidth, rightWidth;
             var width1, height1;
@@ -30,13 +44,13 @@
 
 
             if (parseInt(this.body.outerWidth()) > 1440) {
-                $('#HomePage-pics-parent').width(1366);
-                $('#HomePage-pics').height(360);
-                $('#HomePage-pics .sectionLeft').css({
+                $('.p-Carousel').width(1366);
+                $('.p-Carousel .main').height(360);
+                $('.p-Carousel .main .sectionLeft').css({
                     left: 200,
                     top: 372
                 });
-                $('#HomePage-pics .sectionRight').css({
+                $('.p-Carousel .main .sectionRight').css({
                     right: 200,
                     top: 372
                 });
@@ -47,13 +61,13 @@
                 width2 = 979;
                 height2 = 363;
             } else if (parseInt(this.body.outerWidth()) > 1255 || navigator.userAgent.indexOf('iPad') !== -1) {
-                $('#HomePage-pics-parent').width(1190);
-                $('#HomePage-pics').height(306);
-                $('#HomePage-pics .sectionLeft').css({
+                $('.p-Carousel').width(1190);
+                $('.p-Carousel .main').height(306);
+                $('.p-Carousel .main .sectionLeft').css({
                     left: 200,
                     top: 314
                 });
-                $('#HomePage-pics .sectionRight').css({
+                $('.p-Carousel .main .sectionRight').css({
                     right: 200,
                     top: 314
                 });
@@ -67,13 +81,13 @@
 
             }
             else {
-                $('#HomePage-pics-parent').width(960);
-                $('#HomePage-pics').height(280);
-                $('#HomePage-pics .sectionLeft').css({
+                $('.p-Carousel').width(960);
+                $('.p-Carousel .main-pics').height(280);
+                $('.p-Carousel .main .sectionLeft').css({
                     left: 200,
                     top: 288
                 });
-                $('#HomePage-pics .sectionRight').css({
+                $('.p-Carousel .main .sectionRight').css({
                     right: 200,
                     top: 288
                 });
@@ -97,20 +111,20 @@
                 // { '&zIndex': 3, width: 170, height: 218, top: 37, left: 830, $opacity: 0.7 }
                 {'&zIndex': 3, width: width1, height: height1, top: 37, left: rightWidth, $opacity: 0.7}
             ]
-            this.lis = this.$ele.find('li')
+            this.lis = this.jWrap.find('li')
             this.interval
             // 点击切换到下一张
 
-            this.$ele.find('section:nth-child(2)').on('click', function () {
-                this.stop()
-                this.next()
-                this.play()
+            this.jWrap.find('section:nth-child(2)').on('click', function () {
+                this.stop();
+                this.next();
+                this.play();
             }.bind(this))
             // 点击切换到上一张
-            this.$ele.find('section:nth-child(1)').on('click', function () {
-                this.stop()
-                this.prev()
-                this.play()
+            this.jWrap.find('section:nth-child(1)').on('click', function () {
+                this.stop();
+                this.prev();
+                this.play();
             }.bind(this))
             this.move()
             // 让轮播图开始自动播放
@@ -145,14 +159,14 @@
         // 让轮播图切换到下一张
         next: function () {
 
-            this.states.unshift(this.states.pop())
-            this.move()
+            this.states.unshift(this.states.pop());
+            this.move();
         },
         // 让轮播图滚动到上一张
         prev: function () {
 
-            this.states.push(this.states.shift())
-            this.move()
+            this.states.push(this.states.shift());
+            this.move();
         },
         play: function () {
             this.interval = setInterval(function () {//这个this指window
@@ -161,20 +175,20 @@
                 // states.unshift(states.pop())       //从后往前走
                 // states.push(states.shift())     //从前往后走
                 this.next()
-            }.bind(this), this.options.delay)
+            }.bind(this), this.options.delay);
         },
         // 停止自动播放
         stop: function () {
             // var _this = this
-            clearInterval(this.interval)
+            clearInterval(this.interval);
         }
 
     }
-    $.fn.zySlide = function (options) {
+    $.fn.p_Carousel = function (options) {
         this.each(function (i, ele) {
-            new Slide(ele, options)
+            new p_Carousel(ele, options);
         })
-        return this
+        return this;
     }
 })(jQuery)
 //--------------------------------------------------------------------------------------//
@@ -185,11 +199,11 @@
 // 所以现在要求调用本函数的时候，必须把
 // 轮播图根标签元素通过参数传过来
 // 调用函数时每次调用都会创造全新的作用域，无论闭包还是不闭包
-// var Slide = function (ele, options) {
+// var p_Carousel = function (ele, options) {
 //     // 给函数的参数设置默认值 用|| 3000 1000 都是默认值
 //     // var delay = d || 3000
 //     // var speed = s || 1000
-//     var $ele = $(ele)
+//     var jWrap = $(ele)
 
 // var options = $.extend({
 //     delay: 3000,
@@ -205,7 +219,7 @@
 //         { '&zIndex': 2, width: 130, height: 170, top: 61, left: 620, $opacity: 0.6 },
 //         { '&zIndex': 1, width: 120, height: 150, top: 71, left: 496, $opacity: 0.5 }
 //     ]
-//     var lis = $ele.find('li')
+//     var lis = jWrap.find('li')
 //     var interval
 
 //     // move()方法让轮播图到达states指定的状态
@@ -247,22 +261,22 @@
 //     move()
 //     play()
 
-//     $ele.find('section:nth-child(2)').on('click', function () {
+//     jWrap.find('section:nth-child(2)').on('click', function () {
 //         stop()
 //         next()
 //         play()
 //     })
 //     // 点击切换到上一张
-//     $ele.find('section:nth-child(1)').on('click', function () {
+//     jWrap.find('section:nth-child(1)').on('click', function () {
 //         stop()
 //         prev()
 //         play()
 //     })
 // }
 
-//     $.fn.zySlide = function () {
+//     $.fn.p_Carousel = function () {
 //         this.each(function (i, ele, options) {
-//             Slide(ele, options)
+//             p_Carousel(ele, options)
 //         })
 //         return this
 //     }
@@ -283,16 +297,16 @@
 // console.log(name);
 // window.name = '456';
 // console.log(name);
-// console.log($ele.name);
-// $ele.name = 'abc';
+// console.log(jWrap.name);
+// jWrap.name = 'abc';
 // console.log(name);
 // function test(){
-//     $ele.name = 'xyz';
+//     jWrap.name = 'xyz';
 // }
-// // 在全局作用域里，$ele指向的是window
+// // 在全局作用域里，jWrap指向的是window
 // // 在全局作用域里定义一个函数，
-// // <1>非普通方法调用:$ele指向新创建的对象
-// // <2>普通方法调用:$ele指向window
+// // <1>非普通方法调用:jWrap指向新创建的对象
+// // <2>普通方法调用:jWrap指向window
 // new test()//非普通方法调用
 // console.log(name)
 // test()//普通方法调用
