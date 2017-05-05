@@ -1,3 +1,7 @@
 (function() {
-    pithy
+    pithy.p_loader = p_loader;
+    
+    function p_loader() {
+        
+    }
 })();

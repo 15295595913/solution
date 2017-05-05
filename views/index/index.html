@@ -11,6 +11,7 @@
             top: 178px;
             right: 10px;
             width: 280px;"></div>
+        <div><a href="/easyui/load">load</a></div>
         <div class="content-area" id="content-area">
 
         </div>
@@ -18,7 +19,7 @@
 </div>
 <script>
     (function () {
-        var p_menu = new Pithy.p_Menu({
+        var p_menu = new pithy.p_Menu({
             menu: [
                 {
                     title: '地图1',
@@ -34,7 +35,7 @@
         p_menu.build('.menu');
 
         //地图加载
-        var p_map = new Pithy.p_Map({});
+        var p_map = new pithy.p_Map({});
         p_map.init('content-area');
 
         var map = p_map.getMap();

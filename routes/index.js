@@ -183,4 +183,27 @@ router.get('/dailyPractice/20170227', function (req, res, next) {
     res.render('dailyPractice/20170227', data);
 });
 
+
+//
+router.get('/easyui/load', function (req, res, next) {
+    //数据
+    var data = {
+        title: 'day',
+        time: (new Date).toString(),
+        list: [
+            {
+                id: '1',
+                name: '张三'
+            },
+            {
+                id: '2',
+                name: '李四'
+            }
+        ]
+    };
+    //渲染模板
+    res.render('SecondaryDevelopment/load', data);
+});
+
+
 module.exports = router;
